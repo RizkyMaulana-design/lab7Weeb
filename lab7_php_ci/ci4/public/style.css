@@ -1,0 +1,369 @@
+/* Import Font Mewah 'Poppins' */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Background Gradient Gelap Mewah (Deep Royal Blue to Black) */
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* Konsep 4D: Container Glassmorphism (Efek Kaca) */
+#container {
+    width: 90%;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.05); /* Transparan */
+    backdrop-filter: blur(15px); /* Efek Blur di belakang kaca */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Garis tepi tipis */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 
+        0 20px 50px rgba(0,0,0,0.5), /* Bayangan utama */
+        0 0 0 1px rgba(255,255,255,0.1); /* Garis cahaya halus */
+    animation: floatIn 1s ease-out;
+}
+
+/* Animasi Masuk */
+@keyframes floatIn {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Mewah */
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* Efek Teks Emas Mengkilap */
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
+/* Navigasi "Floating Pills" */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+nav a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a:hover, nav a.active {
+    color: #fff;
+    background: linear-gradient(45deg, #1cb5e0, #000851); /* Biru Neon */
+    box-shadow: 0 0 15px #1cb5e0; /* Efek Glowing */
+    transform: translateY(-2px);
+}
+
+/* Tombol Utama (Button) */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: linear-gradient(45deg, #11998e, #38ef7d); /* Gradasi Hijau Mewah */
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(56, 239, 125, 0.4);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 10px 25px rgba(56, 239, 125, 0.6);
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #cb2d3e, #ef473a); /* Gradasi Merah Mewah */
+    box-shadow: 0 5px 15px rgba(239, 71, 58, 0.4);
+}
+
+.btn-danger:hover {
+    box-shadow: 0 10px 25px rgba(239, 71, 58, 0.6);
+}
+
+/* Tabel 4D */
+table {
+    width: 100%;
+    border-collapse: separate; /* Penting untuk efek terpisah */
+    border-spacing: 0 15px; /* Jarak antar baris agar terlihat melayang */
+    margin-top: 20px;
+}
+
+table thead th {
+    background: transparent;
+    color: #bf953f; /* Warna Emas */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 15px;
+    border-bottom: 2px solid rgba(191, 149, 63, 0.3);
+}
+
+table tbody tr {
+    background: rgba(255, 255, 255, 0.07);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+table tbody tr td {
+    padding: 20px;
+    border: none;
+    color: #eee;
+}
+
+/* Membuat sisi kiri dan kanan baris melengkung */
+table tbody tr td:first-child { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+table tbody tr td:last-child { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+
+/* Efek Hover Baris Melayang (4D) */
+table tbody tr:hover {
+    transform: scale(1.02); /* Membesar sedikit */
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Bayangan dalam */
+    z-index: 10;
+    position: relative;
+}
+
+/* Style Form Input (Untuk halaman Tambah/Edit) */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #1cb5e0;
+    box-shadow: 0 0 10px rgba(28, 181, 224, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+}
+/* --- TAMBAHAN STYLE BARU --- */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    padding-left: 40px; /* Ruang untuk ikon search */
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+/* Badge Status */
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.badge-success {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+}
+
+.badge-warning {
+    background: rgba(241, 196, 15, 0.2);
+    color: #f1c40f;
+    border: 1px solid #f1c40f;
+}
+
+/* Tombol Aksi Ikon */
+.btn-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s;
+    margin: 0 5px;
+}
+
+.btn-edit {
+    background: rgba(52, 152, 219, 0.2);
+    color: #3498db;
+}
+
+.btn-edit:hover {
+    background: #3498db;
+    color: #fff;
+    box-shadow: 0 0 10px #3498db;
+}
+
+.btn-delete {
+    background: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+}
+
+.btn-delete:hover {
+    background: #e74c3c;
+    color: #fff;
+    box-shadow: 0 0 10px #e74c3c;
+}
+/* --- TAMPILAN USER (CARD STYLE) --- */
+
+/* Grid Layout: Otomatis menyesuaikan jumlah kolom */
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Kartu Artikel 4D */
+.article-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Efek Hover: Kartu Terangkat & Glowing */
+.article-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                0 0 20px rgba(191, 149, 63, 0.2); /* Glow Emas Tipis */
+    border-color: rgba(191, 149, 63, 0.3);
+}
+
+/* Judul Artikel */
+.article-card h3 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin: 15px 0;
+    line-height: 1.4;
+}
+
+/* Tanggal / Meta */
+.article-card .meta {
+    font-size: 0.85rem;
+    color: #1cb5e0; /* Biru Neon */
+    margin-bottom: 15px;
+}
+
+/* Isi Singkat */
+.article-card .excerpt {
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Ikon Hiasan Besar Pudar */
+.card-icon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.03);
+    transform: rotate(15deg);
+    transition: 0.4s;
+}
+
+.article-card:hover .card-icon {
+    transform: rotate(0deg) scale(1.1);
+    color: rgba(255, 255, 255, 0.08);
+}
+
+/* Tombol Baca Selengkapnya */
+.btn-read {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, transparent, rgba(191, 149, 63, 0.2));
+    border: 1px solid rgba(191, 149, 63, 0.5);
+    color: #bf953f;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+    align-self: flex-start; /* Agar tombol di kiri */
+}
+
+.btn-read:hover {
+    background: #bf953f;
+    color: #000;
+    box-shadow: 0 0 15px #bf953f;
+    padding-right: 25px; /* Efek memanjang sedikit */
+}
