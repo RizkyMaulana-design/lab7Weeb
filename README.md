@@ -1,9 +1,4 @@
 
-````markdown
-
------
-
-````markdown
 # 🚀 Praktikum 1: PHP Framework (CodeIgniter 4)
 **Laporan Praktikum Pemrograman Web - Lab 11**
 
@@ -251,9 +246,66 @@ Halaman *form* yang secara otomatis menarik data lama dari database berdasarkan 
 
 <img width="1920" height="1030" alt="edit" src="https://github.com/user-attachments/assets/159a12df-55c9-4591-a0f2-befe0e5b467d" />
 
-```
+---
 
-***
+# 🚀 Praktikum 3: View Layout dan View Cell (CodeIgniter 4)
+**Laporan Praktikum Pemrograman Web - Lab 11 (Lanjutan)**
+
+
+## 🎯 Tujuan Praktikum
+Praktikum ketiga ini bertujuan untuk meningkatkan modularitas dan kerapian struktur *view* pada aplikasi CodeIgniter 4. Fokus utamanya meliputi:
+1. Memahami dan mengimplementasikan konsep **View Layout** (Template Utama).
+2. Memisahkan struktur kerangka halaman (*header*, *footer*, *sidebar*) dari konten spesifik menggunakan method `extend()` dan `section()`.
+3. Memahami dan mengimplementasikan **View Cell** untuk merender komponen UI secara modular dan dinamis (seperti *widget* "Artikel Terkini").
+
+---
+
+## 🛠️ Langkah-Langkah Praktikum & Dokumentasi
+
+Berikut adalah dokumentasi implementasi fitur View Layout dan View Cell:
+
+### 1. Modifikasi Database (Penambahan Kolom `created_at`)
+Untuk mendukung fitur "Artikel Terkini" yang akan dibuat menggunakan View Cell, struktur tabel `artikel` perlu dimodifikasi. Kolom baru bernama `created_at` (dengan tipe data DATETIME dan nilai *default* CURRENT_TIMESTAMP) ditambahkan melalui phpMyAdmin agar sistem dapat mendeteksi dan mengurutkan artikel berdasarkan waktu pembuatannya.
+
+<img width="1920" height="1026" alt="xampp" src="https://github.com/user-attachments/assets/e59eba4c-9a4e-42c0-882e-76a895cd0260" />
+
+
+### 2. Pembuatan View Layout Utama (`main.php`)
+Sebuah file kerangka utama dibuat di `app/Views/layout/main.php`. File ini menggabungkan elemen statis (*header*, *navigasi*, *sidebar*, *footer*) menjadi satu template master. Konten dinamis dari halaman lain akan disuntikkan ke bagian spesifik menggunakan perintah `<?= $this->renderSection('content') ?>`.
+
+<img width="1840" height="1080" alt="layout,main php" src="https://github.com/user-attachments/assets/48c1cea9-87b3-4f36-a8bd-a3fe747a4649" />
+
+### 3. Pembuatan Class View Cell (`ArtikelTerkini.php`)
+View Cell bertindak sebagai komponen independen. Sebuah *class* dibuat di `app/Cells/ArtikelTerkini.php`. *Class* ini memiliki metode `render()` yang bertugas mengambil 5 data artikel terbaru (diurutkan berdasarkan `created_at` secara *Descending*) dari `ArtikelModel`, lalu mengirimkannya ke *view* komponen.
+
+<img width="1919" height="1080" alt="cels,artikel terkini" src="https://github.com/user-attachments/assets/aa5a297a-c9c3-40d9-bb3b-8df85e7088e7" />
+
+### 4. Pembuatan View untuk Komponen Cell
+Tampilan khusus untuk *widget* "Artikel Terkini" dibuat di `app/Views/components/artikel_terkini.php`. *View* ini menerima data dari *class* Cell dan me-render daftar judul artikel dalam format *list*.
+
+<img width="1920" height="1080" alt="component,artikel terkini" src="https://github.com/user-attachments/assets/6e7752c2-b636-4947-b565-36fca528c565" />
+
+---
+
+# 🚀 Praktikum 4: Framework Lanjutan (Modul Login & Autentikasi)
+**Laporan Praktikum Pemrograman Web - Lab 11 (Lanjutan)**
+
+## ✨ Hasil Implementasi Antarmuka
+
+Dengan penerapan View Layout, kode pada halaman spesifik menjadi jauh lebih ringkas karena tidak perlu lagi memanggil *header* dan *footer* secara manual. Selain itu, pemanggilan View Cell berhasil menampilkan data artikel terbaru di *sidebar* tanpa harus menulis logika pengambilan data berulang kali di setiap *controller*.
+
+### 🖥️ Hasil Akhir Halaman Utama (Home)
+Halaman ini (`localhost:8080/`) telah diperbarui untuk menggunakan *layout* utama dan menampilkan widget "Artikel Terkini" di area *sidebar* kanan.
+
+<img width="1920" height="1025" alt="halaman biasa" src="https://github.com/user-attachments/assets/453cea8f-b368-43f1-a99b-fa2b0870f8b2" />
+
+### 🖥️ Hasil Akhir Halaman Daftar Artikel
+Halaman daftar artikel (`localhost:8080/artikel`) juga beradaptasi dengan *layout* yang sama, mempertahankan konsistensi desain secara keseluruhan.
+
+<img width="1920" height="1034" alt="halaman artikel" src="https://github.com/user-attachments/assets/c845f4f8-0627-4775-9263-2a33699a621a" />
+
+
+---
 
 ## 📚 Kesimpulan
 
