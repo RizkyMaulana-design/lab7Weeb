@@ -179,6 +179,82 @@ Menampilkan halaman form interaktif yang *styling*-nya disesuaikan agar menyatu 
 
 -----
 
+# 🚀 Praktikum 2: Framework Lanjutan (CRUD Database)
+**Laporan Praktikum Pemrograman Web - Lab 11 (Lanjutan)**
+
+---
+
+## 🎯 Tujuan Praktikum
+Praktikum kedua ini berfokus pada pengembangan aplikasi web dinamis dengan CodeIgniter 4. Tujuan utamanya meliputi:
+1. Memahami dan mengimplementasikan konsep dasar **Model** pada arsitektur MVC.
+2. Memahami alur kerja **CRUD (Create, Read, Update, Delete)** menggunakan database MySQL.
+3. Mampu memisahkan *routing* dan tampilan antara halaman publik (*User*) dan halaman pengelola (*Admin*).
+
+---
+
+## 🛠️ Langkah-Langkah Praktikum & Dokumentasi
+
+Berikut adalah dokumentasi dari tahapan implementasi fitur CRUD pada proyek portal berita sederhana ini:
+
+### 1. Persiapan Database & Struktur Tabel
+Langkah pertama adalah menyiapkan media penyimpanan data. Database `lab11_ci` dibuat menggunakan MySQL melalui phpMyAdmin. Di dalamnya, dibuat tabel `artikel` yang berisi kolom-kolom untuk menampung data ID, Judul, Isi, Gambar, Status, dan Slug artikel.
+
+<img width="1255" height="451" alt="xampp" src="https://github.com/user-attachments/assets/019ec169-d24f-44ba-b097-8c74212d27bc" />
+
+### 2. Konfigurasi Koneksi Database (`.env`)
+Agar CodeIgniter 4 dapat berkomunikasi dengan database MySQL, konfigurasi dilakukan pada file `.env`. Variabel *environment* untuk koneksi database diaktifkan dan disesuaikan nilainya (hostname, database, username).
+
+<img width="1915" height="1074" alt="env" src="https://github.com/user-attachments/assets/106b99d2-292a-4d31-a7cd-04af9991c01e" />
+
+### 3. Pembuatan Model & Controller (Logika CRUD)
+* **Model (`ArtikelModel.php`):** Dibuat untuk mendefinisikan tabel yang digunakan (`artikel`) dan *field* apa saja yang diizinkan untuk dimanipulasi (*allowed fields*).
+* **Controller (`Artikel.php`):** Dibuat untuk menangani *request* dari *user*. Di dalamnya terdapat fungsi-fungsi CRUD seperti `index()` untuk membaca data (*Read*), `add()` untuk menambah data (*Create*), `edit()` untuk mengubah data (*Update*), dan `delete()` untuk menghapus data (*Delete*).
+
+<img width="274" height="656" alt="artikel dan artikel model" src="https://github.com/user-attachments/assets/e89d269e-250f-440b-9251-598c1d7d8802" />
+
+
+---
+
+
+## ✨ Hasil Implementasi Antarmuka (Views)
+
+Aplikasi telah terbagi menjadi dua sisi utama: **Halaman Publik (User)** dan **Halaman Dasbor (Admin)**. Antarmuka tetap mempertahankan desain *Dark Mode* dan *Glassmorphism*.
+
+### 🖥️ Sisi Pengguna (Halaman Publik)
+
+**A. Halaman Daftar Artikel (`/artikel`)**
+Halaman ini menampilkan seluruh data artikel yang ditarik dari database. Jika data kosong, akan muncul pesan "Belum ada data".
+
+<img width="1917" height="1034" alt="halaman artikel" src="https://github.com/user-attachments/assets/8b15bc6c-972d-4ebb-9504-05b9efb7f8f2" />
+
+
+**B. Halaman Detail Artikel (`/artikel/nama-slug`)**
+Ketika judul artikel diklik, sistem menggunakan sistem *Routing* berbasis variabel *slug* untuk memanggil data spesifik dari satu artikel dan menampilkannya secara penuh.
+
+<img width="1912" height="1028" alt="artikel pertaman" src="https://github.com/user-attachments/assets/aa459dda-7dab-4d1b-8af1-e5ac5b241593" />
+
+### ⚙️ Sisi Pengelola (Halaman Admin)
+
+**C. Dasbor Manajemen Artikel (`/admin/artikel`)**
+Halaman dasbor yang menampilkan tabel data artikel. Di sini Administrator dapat melihat status artikel serta melakukan aksi *Ubah* atau *Hapus* pada data terkait.
+
+<img width="1920" height="1032" alt="admin artikel" src="https://github.com/user-attachments/assets/9adae79e-e9f1-4345-ba55-5d56dd9d0ab3" />
+
+
+**D. Form Tambah Data / Create (`/admin/artikel/add`)**
+Halaman yang berisi *form* input untuk memasukkan artikel baru ke dalam database. Data yang dikirim akan divalidasi terlebih dahulu oleh *Controller* sebelum di-*insert*.
+
+<img width="1920" height="1030" alt="form add" src="https://github.com/user-attachments/assets/febcd117-19e6-482b-9df4-9acc6a5605f0" />
+
+**E. Form Ubah Data / Update (`/admin/artikel/edit/id`)**
+Halaman *form* yang secara otomatis menarik data lama dari database berdasarkan ID artikel yang dipilih, sehingga Admin dapat mengubah teks judul maupun isinya, lalu memperbarui datanya di database.
+
+<img width="1920" height="1030" alt="edit" src="https://github.com/user-attachments/assets/159a12df-55c9-4591-a0f2-befe0e5b467d" />
+
+```
+
+***
+
 ## 📚 Kesimpulan
 
 Praktikum ini berhasil mengimplementasikan dasar-dasar CodeIgniter 4. Pemisahan komponen menggunakan konsep **MVC** terbukti membuat struktur kode menjadi jauh lebih rapi, terorganisir, dan mudah dikembangkan (*scalable*). Sistem modular pada bagian **View** (*templating header-footer*) sangat mengefisiensikan penulisan kode antarmuka.
